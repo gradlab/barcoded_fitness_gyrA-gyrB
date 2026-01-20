@@ -12,15 +12,15 @@
 
 ***Outputs***
 
-- bc_count_results directory containing the following files (with rep replaced with the name of the fastq directory):
+bc_count_results directory containing the following files (with rep replaced with the name of the fastq directory):
 
-o rep_rawcounts.csv: number of instances of each barcode at each timepoint
+- rep_rawcounts.csv: number of instances of each barcode at each timepoint
 
-o rep_proportions.csv: proportion of each barcode to total barcode count for each timepoint
+- rep_proportions.csv: proportion of each barcode to total barcode count for each timepoint
 
-o rep_normalized.csv: proportion of each barcode at each timepoint normalized to the barcode's own time 0 value
+- rep_normalized.csv: proportion of each barcode at each timepoint normalized to the barcode's own time 0 value
 
-o rep_prop_toref.csv: proportion of each barcode to sum of reference strain barcode counts at that timepoint. This data is used for bc_regression_model.R
+- rep_prop_toref.csv: proportion of each barcode to sum of reference strain barcode counts at that timepoint. This data is used for bc_regression_model.R
 
 **bc_regression_model.R**
 
