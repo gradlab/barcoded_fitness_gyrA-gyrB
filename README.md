@@ -1,4 +1,4 @@
-# barcoded_fitness
+# Barcoded fitness assays for isogenic _gyrA_ and _gyrB_ strains 
 
 **bc_count.py**
 
