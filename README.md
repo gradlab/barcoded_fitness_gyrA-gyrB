@@ -1,8 +1,8 @@
 # Barcoded fitness assays for isogenic _gyrA_ and _gyrB_ strains 
 
-**bc_count.py**
+## **bc_count.py**
 
-***Inputs (edit at the top of the script before running)***
+### **Inputs (edit at the top of the script before running)**
 
 - reffile: fasta file of each barcode name/sequence
 
@@ -10,7 +10,7 @@
 
 - refstrain: name of the strain used as a reference (used for the prop_to_ref.csv output). If the reference strain has multiple barcode sequences, their names in the reffile should all start the same (ex. if barcodes are AM370.1 and AM370.2, refstrain is 'AM370').
 
-***Outputs***
+### **Outputs**
 
 bc_count_results directory containing the following files (with rep replaced with the name of the fastq directory):
 
@@ -22,9 +22,9 @@ bc_count_results directory containing the following files (with rep replaced wit
 
 - rep_prop_toref.csv: proportion of each barcode to sum of reference strain barcode counts at that timepoint. This data is used for bc_regression_model.R
 
-**bc_regression_model.R**
+## **bc_regression_model.R**
 
-***Input:*** csv file containing a row for each barcode in each replicate at each timepoint with columns for:
+### **Input:** csv file containing a row for each barcode in each replicate at each timepoint with columns for:
 
 - barcode: name of barcode/strain (should match those in the reffile fasta file used by bc_count.py)
 
@@ -42,11 +42,11 @@ bc_count_results directory containing the following files (with rep replaced wit
 
 - prop_to_ref: proportion of barcode to sum of reference strain barcode counts at that timepoint (output of bc_count.py)
 
-***Output:***
+### **Output:**
 
 - gyra+gyrb_effects.csv: median and 95% CI of all model draws. Contains rows for effect of *gyrA* (median difference in growth rate of each *gyrA* genotype compared to reference strain) and sum of *gyrA* effect and *gyrB* effect given *gyrA* genotype (median difference in growth rate of each *gyrA* genotype + *gyrB* D429N compared to reference strain).
 
-**Extras**
+## **Extras**
 
 - bc_count.yml: can be used to create a conda environment for running bc_count.py
 
