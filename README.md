@@ -51,3 +51,7 @@ bc_count_results directory containing the following files (with rep replaced wit
 - bc_count.yml: can be used to create a conda environment for running bc_count.py
 
 - convert_to_model_format.py: can be used to convert from prop_to_ref files from multiple replicates (bc_count.py outputs) to single input formatted for bc_regression_model.R. This script requires an extra text file containing the barcode names with associated genotypes (columns for strain, *gyrA* genotype, and 0/1 for *gyrB*)
+  
+- sample_reffile: example of correct format for barcode references fasta file for bc_count.py
+  
+- sample_genotypefile: example of genotype file for convert_to_model_format.py
