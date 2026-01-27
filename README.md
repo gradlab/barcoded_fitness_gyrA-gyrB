@@ -46,6 +46,11 @@ bc_count_results directory containing the following files (with rep replaced wit
 
 - gyra+gyrb_effects.csv: median and 95% CI of all model draws. Contains rows for effect of *gyrA* (median difference in growth rate of each *gyrA* genotype compared to reference strain) and sum of *gyrA* effect and *gyrB* effect given *gyrA* genotype (median difference in growth rate of each *gyrA* genotype + *gyrB* D429N compared to reference strain).
 
+## **Data**
+- gyra_gyrb_barcode_counts.csv: Raw results of isogenic strain competition experiment. Read counts of each barcode over 3 timepoints (0, 2, and 4 hours) across 2 replicates (A/B).
+- gyra+gyrb_effects.csv: median and 95% CI of model draws from bc_regression_model.R for each genotype. For genotypes with *gyrB* D429N, median and CI are calculated from the sum of the corresponding *gyrA* draws and *gyrB* given *gyrA* genotype draws.
+
+
 ## **Extras**
 
 - bc_count.yml: can be used to create a conda environment for running bc_count.py
