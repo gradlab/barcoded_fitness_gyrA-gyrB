@@ -42,6 +42,8 @@ bc_count_results directory containing the following files (with rep replaced wit
 
 - prop_to_ref: proportion of barcode to sum of reference strain barcode counts at that timepoint (output of bc_count.py)
 
+note: a python script for converting bc_count.py output to regression model input is available in extras
+
 ### **Output:**
 
 - gyra+gyrb_effects.csv: median and 95% CI of all model draws. Contains rows for effect of *gyrA* (median difference in growth rate of each *gyrA* genotype compared to reference strain) and sum of *gyrA* effect and *gyrB* effect given *gyrA* genotype (median difference in growth rate of each *gyrA* genotype + *gyrB* D429N compared to reference strain).
