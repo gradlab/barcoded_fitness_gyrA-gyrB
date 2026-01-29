@@ -42,7 +42,9 @@ bc_count_results directory containing the following files (with rep replaced wit
 
 - prop_to_ref: proportion of barcode to sum of reference strain barcode counts at that timepoint (output of bc_count.py)
 
-note: a python script for converting bc_count.py output to regression model input is available in extras
+Note: a python script for converting bc_count.py output to regression model input is available in extras
+
+**Important**: before running, update line 18 to include only the *gyrA* genotypes included in the dataset
 
 ### **Output:**
 
