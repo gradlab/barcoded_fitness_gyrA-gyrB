@@ -4,7 +4,11 @@ library(tidyverse)
 
 data <- read.csv('model_input.csv')
 
-data$log.prop <- log(data$prop_to_ref)
+if (any(data$prop_to_ref == 0, na.rm = TRUE)) {
+  data$log.prop <- log(data$prop_to_ref + 0.000001)
+} else {
+  data$log.prop <- log(data$prop_to_ref)
+}
 
 fit2 <- brm(log.prop ~ -1 + gyra:time + (-1 + gyrb:time|gyra) + unique_id + (-1 + time|barcode), data=data, cores = 4, family=gaussian())
 
@@ -12,6 +16,7 @@ fit2 <- brm(log.prop ~ -1 + gyra:time + (-1 + gyrb:time|gyra) + unique_id + (-1 
 #add gyra and gyrb effects
 
 gyras <- c('S.D','S.A','S.G','S.N','F.D','F.A','F.G','F.N')
+
 col1start = 'b_gyra'
 col1end = ':time'
 col2start = 'r_gyra['
@@ -27,9 +32,6 @@ for (gyra in gyras) {
   combined[[newname]] = modeloutput[[col1]] + modeloutput[[col2]]
   combined[[newname2]] = modeloutput[[col2]]
   combined[[gyra]] = modeloutput[[col1]]
-  #if (gyra != 'S.D') {
-    #combined[[gyra]] = modeloutput[[col1]]
-  #}
 }
 
 #get median and ci

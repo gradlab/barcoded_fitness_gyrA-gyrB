@@ -104,17 +104,17 @@ for col in normalize.columns:
 
 normalize.to_csv(f'bc_count_results/{rep}_normalized.csv', index=False)
 
-#Creates CSV of proportion of reads to sum of of S/D read counts for model input
+#Creates CSV of proportion of reads to sum of of reference strain read counts for model input
 toref = rawcounts.copy()
 
 refdf = toref[toref['strain'].str.startswith(refstrain)].copy()
 numcols = refdf.select_dtypes(include='number').columns
 ref_sums = refdf[numcols].sum()
 #drop ref rows
-toref = toref[~toref['strain'].str.startswith('refstrain')]
+toref = toref[~toref['strain'].str.startswith(refstrain)]
 
 #add ref barcode sums as a row
-ref_row = {col: ref_sums[col] if col in numcols else ref if col == 'strain' else '' 
+ref_row = {col: ref_sums[col] if col in numcols else refstrain if col == 'strain' else '' 
            for col in toref.columns}
 
 toref = pd.concat([toref, pd.DataFrame([ref_row])], ignore_index=True)
