@@ -4,12 +4,6 @@ library(tidyverse)
 
 data <- read.csv('model_input.csv')
 
-if (any(data$prop_to_ref == 0, na.rm = TRUE)) {
-  data$log.prop <- log(data$prop_to_ref + 0.000001)
-} else {
-  data$log.prop <- log(data$prop_to_ref)
-}
-
 fit2 <- brm(log.prop ~ -1 + gyra:time + (-1 + gyrb:time|gyra) + unique_id + (-1 + time|barcode), data=data, cores = 4, family=gaussian())
 
 
