@@ -1,4 +1,6 @@
-# Barcoded fitness assays for isogenic _gyrA_ and _gyrB_ strains 
+# Barcoded fitness assays for isogenic _gyrA_ and _gyrB_ strains
+This repository contains code and data from **gyrA and gyrB-mediated ciprofloxacin and zoliflodacin cross-resistance and the fitness implications in _Neisseria gonorrhoeae_**\
+Aditi Mukherjee, Sofia OP Blomqvist, David Helekal, Daniel H Rubin, Bailey Bowcutt, Samantha G Palace, Yonatan H Grad
 
 ## **bc_count.py**
 
