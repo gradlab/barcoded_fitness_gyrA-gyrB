@@ -1,6 +1,6 @@
 This repository contains code and data from **Fluoroquinolone resistance-conferring _gyrA_ variants alter the fitness cost and potentiate the resistance of the zoliflodacin resistance mutation _gyrB_<sup>D429N</sup> in _Neisseria gonorrhoeae_**\
 Authors: Aditi Mukherjee, Sofia OP Blomqvist, David Helekal, Daniel HF Rubin, Bailey Bowcutt, Samantha G Palace, Yonatan H Grad\
-Preprint: [https://www.biorxiv.org/content/10.64898/2026.05.04.722797v1](url)
+[Preprint](https://www.biorxiv.org/content/10.64898/2026.05.04.722797v1)
 
 ## **Pairwise Data**
 - Raw data_pairwise fitness_growth curve.xlsx: Excel workbook of raw data from pairwise fitness assays and growth curve experiments
