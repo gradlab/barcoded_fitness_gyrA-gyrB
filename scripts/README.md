@@ -1,0 +1,50 @@
+# Analysis of barcoded competition data
+## **bc_count.py**
+
+### **Inputs (edit at the top of the script before running)**
+
+- reffile: fasta file of each barcode name/sequence
+
+- fastqdir: directory of fastq files of sequencing reads for a given replicate. Each fastq should be named after its timepoint and the name of the fastq directory will be used as the replicate name (ex. fastqs/A/2.fastq contains the reads from timepoint 2 in replicate A, and the fastqdir in this situation would be 'fastqs/A')
+
+- refstrain: name of the strain used as a reference (used for the prop_to_ref.csv output). If the reference strain has multiple barcode sequences, their names in the reffile should all start the same (ex. if barcodes are AM370.1 and AM370.2, refstrain is 'AM370').
+
+### **Outputs**
+
+bc_count_results directory containing the following files (with rep replaced with the name of the fastq directory):
+
+- rep_rawcounts.csv: number of instances of each barcode at each timepoint
+
+- rep_proportions.csv: proportion of each barcode to total barcode count for each timepoint
+
+- rep_normalized.csv: proportion of each barcode at each timepoint normalized to the barcode's own time 0 value
+
+- rep_prop_toref.csv: proportion of each barcode to sum of reference strain barcode counts at that timepoint. This data is used for bc_regression_model.R
+
+## **bc_regression_model.R**
+
+### **Input:** csv file containing a row for each barcode in each replicate at each timepoint with columns for:
+
+- barcode: name of barcode/strain (should match those in the reffile fasta file used by bc_count.py)
+
+- replicate: name of replicate
+
+- genotype: genotype (not a necessary column but nice to have)
+
+- gyra: *gyrA* pos91.pos95 (ex. S.D)
+
+- gyrb: 0 if *gyrB* 429D, 1 if *gyrB* D429N
+
+- unique_id: identifier for each barcode in each replicate (ex. AM390.1_A for all timepoints of AM390.1 in replicate A)
+
+- time: time in generations
+
+- prop_to_ref: proportion of barcode to sum of reference strain barcode counts at that timepoint (output of bc_count.py)
+
+Note: a python script for converting bc_count.py output to regression model input is available in extras
+
+**Important**: before running, update line 18 to include only the *gyrA* genotypes included in the dataset
+
+### **Output:**
+
+- gyra+gyrb_effects.csv: median and 95% CI of all model draws. Contains rows for effect of *gyrA* (median difference in growth rate of each *gyrA* genotype compared to reference strain) and sum of *gyrA* effect and *gyrB* effect given *gyrA* genotype (median difference in growth rate of each *gyrA* genotype + *gyrB* D429N compared to reference strain).
